@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Smurf from "./Smurf";
 import axios from "axios";
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardText
+} from 'reactstrap';
 
 class Smurfs extends Component {
   deleteSmurf = e => {
@@ -32,14 +38,13 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Link to={`/smurf/${smurf.id}`} key={smurf.id}>
-                <div className="Smurf" name={smurf.id}>
-                  <h3>{smurf.name} Smurf</h3>
-                  <strong>{smurf.height} tall</strong>
-                  <p>{smurf.age} smurf years old</p>
-                  <button name={smurf.id} onClick={this.deleteSmurf}>
-                    Exile Smurf!
-                  </button>
-                </div>
+                <Card key={smurf.id}>
+                  <CardBody>
+                    <CardTitle>{smurf.name} Smurf</CardTitle>
+                    <CardText>{smurf.height} cm tall</CardText>
+                    <CardText>{smurf.age} smurf years old</CardText>
+                  </CardBody>
+                </Card>
               </Link>
             );
           })}

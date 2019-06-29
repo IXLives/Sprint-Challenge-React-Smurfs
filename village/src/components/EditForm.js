@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 import axios from "axios";
 
 class EditForm extends Component {
@@ -30,8 +31,7 @@ class EditForm extends Component {
   editSmurf = e => {
     const { name, age, height } = this.state;
     const updated = { name, age, height };
-    const id = this.props.match.params.id
-    console.log(id);
+    const id = this.props.match.params.id;
     e.preventDefault();
 
     axios.put(`http://localhost:3333/smurfs/${id}`, updated).then(response => {
@@ -49,8 +49,21 @@ class EditForm extends Component {
   };
 
   render() {
+    const smurf = this.props.smurfs.find(
+      i => String(i.id) === this.props.match.params.id
+    );
+    if (!smurf) {
+      return <div>Loading...</div>;
+    }
     return (
       <div className="SmurfForm">
+        <Card key={smurf.id}>
+          <CardBody>
+            <CardTitle>{smurf.name} Smurf</CardTitle>
+            <CardText>{smurf.height} cm tall</CardText>
+            <CardText>{smurf.age} smurf years old</CardText>
+          </CardBody>
+        </Card>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
