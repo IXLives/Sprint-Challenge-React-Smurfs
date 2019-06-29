@@ -11,6 +11,24 @@ class SmurfForm extends Component {
     };
   }
 
+  editSmurf = e => {
+    const { name, age, height } = this.state;
+    const updated = { name, age, height };
+    const id = e.key;
+    console.log(id)
+    e.preventDefault();
+
+    axios.put(`http://localhost:3333/smurfs/${id}`, updated)
+      .then(response => {
+        this.props.updateSmurfs(response.data);
+        this.setState({
+          name: "",
+          age: 0,
+          email: ""
+        });
+      });
+  };
+
   addSmurf = e => {
     // add code to create the smurf using the api
 
@@ -59,6 +77,7 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+          {/* <button type='edit' onClick = {this.editSmurf}>Edit Smurf</button> */}
         </form>
       </div>
     );

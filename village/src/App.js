@@ -3,6 +3,7 @@ import axios from "axios";
 import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
+import EditForm from './components/EditForm';
 import Smurfs from "./components/Smurfs";
 import Smurf from './components/Smurf';
 import { Navbar, Nav, NavItem } from "reactstrap";
@@ -53,6 +54,18 @@ class App extends Component {
           path="/smurf-form"
           render={props => (
             <SmurfForm
+              {...props}
+              smurfs={this.state.smurfs}
+              updateSmurfs={this.updateSmurfs}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/smurf-form/:id"
+          render={props => (
+            <EditForm
               {...props}
               smurfs={this.state.smurfs}
               updateSmurfs={this.updateSmurfs}
