@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 
 const Smurf = props => {
-  const smurf = props.smurfs.find(i => String(i.id) === props.match.params.id)
+  const smurf = props.smurfs.find(i => String(i.id) === props.match.params.id);
 
   if (!smurf) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
-  console.log(smurf)
   return (
     <div className="Smurf">
       <h3>{smurf.name}</h3>
@@ -18,10 +17,9 @@ const Smurf = props => {
 };
 
 Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
+  name: "",
+  height: "",
+  age: ""
 };
 
 export default Smurf;
-
