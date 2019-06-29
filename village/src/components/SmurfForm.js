@@ -15,18 +15,17 @@ class SmurfForm extends Component {
     const { name, age, height } = this.state;
     const updated = { name, age, height };
     const id = e.key;
-    console.log(id)
+    console.log(id);
     e.preventDefault();
 
-    axios.put(`http://localhost:3333/smurfs/${id}`, updated)
-      .then(response => {
-        this.props.updateSmurfs(response.data);
-        this.setState({
-          name: "",
-          age: 0,
-          email: ""
-        });
+    axios.put(`http://localhost:3333/smurfs/${id}`, updated).then(response => {
+      this.props.updateSmurfs(response.data);
+      this.setState({
+        name: "",
+        age: 0,
+        email: ""
       });
+    });
   };
 
   addSmurf = e => {

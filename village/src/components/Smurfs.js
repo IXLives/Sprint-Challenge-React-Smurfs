@@ -32,11 +32,13 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Link to={`/smurf/${smurf.id}`} key={smurf.id}>
-                <div className="Smurf" name = {smurf.id}>
+                <div className="Smurf" name={smurf.id}>
                   <h3>{smurf.name} Smurf</h3>
                   <strong>{smurf.height} tall</strong>
                   <p>{smurf.age} smurf years old</p>
-                  <button name = {smurf.id} onClick={this.deleteSmurf}>Exile Smurf!</button>
+                  <button name={smurf.id} onClick={this.deleteSmurf}>
+                    Exile Smurf!
+                  </button>
                 </div>
               </Link>
             );

@@ -3,9 +3,9 @@ import axios from "axios";
 import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
-import EditForm from './components/EditForm';
+import EditForm from "./components/EditForm";
 import Smurfs from "./components/Smurfs";
-import Smurf from './components/Smurf';
+import Smurf from "./components/Smurf";
 import { Navbar, Nav, NavItem } from "reactstrap";
 
 class App extends Component {
