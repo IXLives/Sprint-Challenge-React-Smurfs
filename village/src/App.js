@@ -63,7 +63,7 @@ class App extends Component {
 
         <Route
           exact
-          path="/smurf-form/:id"
+          path="/edit-smurf/:id"
           render={props => (
             <EditForm
               {...props}

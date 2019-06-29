@@ -11,6 +11,21 @@ class EditForm extends Component {
       };
     }
 
+    componentDidMount() {
+        const id = this.props.match.params.id
+        axios.get(`http://localhost:3333/smurfs/${id}`)
+            .then((response) => {
+                this.setState({
+                    name: response.data.name,
+                    age: response.data.age,
+                    height: response.data.height
+                })
+            })
+            .catch((err) => {
+                console.log('Error: ', err)
+            })
+    }
+
     editSmurf = e => {
         const { name, age, height } = this.state;
         const updated = { name, age, height };

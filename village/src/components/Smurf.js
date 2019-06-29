@@ -13,7 +13,7 @@ const Smurf = props => {
       <h3>{smurf.name}</h3>
       <strong>{smurf.height} tall</strong>
       <p>{smurf.age} smurf years old</p>
-      <Link to = {`/smurf-form/${smurf.id}`}>Edit</Link>
+      <Link to = {`/edit-smurf/${smurf.id}`}>Edit</Link>
     </div>
   );
 };
